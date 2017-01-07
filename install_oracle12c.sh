@@ -179,13 +179,13 @@ TEMPLATENAME = "My Clone TEMPLATE"
 SOURCEDB = "${oracleDBname}"
 [generateScripts]
 TEMPLATENAME = "New Database"
-GDBNAME = "$((hostname -f))"
+GDBNAME = "$(hostname -f)"
 [CONFIGUREDATABASE]
 [ADDINSTANCE]
-DB_UNIQUE_NAME = "$((hostname -f))"
+DB_UNIQUE_NAME = "$(hostname -f)"
 SYSDBAUSERNAME = "sys"
 [DELETEINSTANCE]
-DB_UNIQUE_NAME = "$((hostname -f))"
+DB_UNIQUE_NAME = "$(hostname -f)"
 INSTANCENAME = "orcl12c"
 SYSDBAUSERNAME = "sys"
 [CREATEPLUGGABLEDATABASE]
