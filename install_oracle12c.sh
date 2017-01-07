@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 addgroup --system oinstall
 addgroup --system dba
 adduser --system --ingroup oinstall --shell /bin/bash oracle
@@ -177,13 +179,13 @@ TEMPLATENAME = "My Clone TEMPLATE"
 SOURCEDB = "${oracleDBname}"
 [generateScripts]
 TEMPLATENAME = "New Database"
-GDBNAME = "orcl12.us.oracle.com"
+GDBNAME = "$((hostname -f))"
 [CONFIGUREDATABASE]
 [ADDINSTANCE]
-DB_UNIQUE_NAME = "orcl12c.us.oracle.com"
+DB_UNIQUE_NAME = "$((hostname -f))"
 SYSDBAUSERNAME = "sys"
 [DELETEINSTANCE]
-DB_UNIQUE_NAME = "orcl12c.us.oracle.com"
+DB_UNIQUE_NAME = "$((hostname -f))"
 INSTANCENAME = "orcl12c"
 SYSDBAUSERNAME = "sys"
 [CREATEPLUGGABLEDATABASE]
@@ -210,3 +212,5 @@ sudo -i -u oracle unzip ${currentdir}/${CLIENTBASIC} -d /opt/oracle
 sudo -i -u oracle unzip ${currentdir}/${CLIENTSQL} -d /opt/oracle
 sudo -i -u oracle ln -s /opt/oracle/instantclient_12_1/libclntsh.so{.12.1,}
 sudo -i -u oracle ln -s /opt/oracle/instantclient_12_1/libocci.so{.12.1,}
+
+set +e
