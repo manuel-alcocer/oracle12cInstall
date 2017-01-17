@@ -8,6 +8,8 @@ adduser --system --ingroup oinstall --shell /bin/bash oracle
 adduser oracle dba
 
 memorysize=$(free -b | grep -Ei 'mem:' | awk '{print $2}')
+memorymax=$((memorysize*40))
+memorymax=$((memorymax/100))
 pagesize=$(getconf PAGE_SIZE)
 shmall=$((memorysize/pagesize))
 ((memorysize--))
@@ -109,7 +111,7 @@ oracle.install.db.config.PDBName=pdborcl
 oracle.install.db.config.starterdb.password.ALL=$oraclePassword
 oracle.install.db.config.starterdb.characterSet=AL32UTF8
 oracle.install.db.config.starterdb.memoryOption=true
-oracle.install.db.config.starterdb.memoryLimit=1586
+oracle.install.db.config.starterdb.memoryLimit=$memorymax
 oracle.install.db.config.starterdb.installExampleSchemas=true
 oracle.install.db.config.starterdb.managementOption=DEFAULT
 oracle.install.db.config.starterdb.omsPort=0
