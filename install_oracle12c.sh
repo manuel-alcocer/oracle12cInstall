@@ -186,7 +186,7 @@ DB_UNIQUE_NAME = "$(hostname -f)"
 SYSDBAUSERNAME = "sys"
 [DELETEINSTANCE]
 DB_UNIQUE_NAME = "$(hostname -f)"
-INSTANCENAME = "orcl12c"
+INSTANCENAME = "${oracleDBname}"
 SYSDBAUSERNAME = "sys"
 [CREATEPLUGGABLEDATABASE]
 SOURCEDB = "${oracleDBname}"
