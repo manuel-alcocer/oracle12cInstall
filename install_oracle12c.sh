@@ -8,8 +8,8 @@ adduser --system --ingroup oinstall --shell /bin/bash oracle
 adduser oracle dba
 
 memorysize=$(free -b | grep -Ei 'mem:' | awk '{print $2}')
-memorymax=$((memorysize*40))
-memorymax=$((memorymax/(100*1024*1024)))
+memorymax=$(free -m | grep -Ei 'mem:' | awk '{print $4}')
+memorymax=$((memorysize*40/100))
 pagesize=$(getconf PAGE_SIZE)
 shmall=$((memorysize/pagesize))
 ((memorysize--))
