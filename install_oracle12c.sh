@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-set -e
-
 addgroup --system oinstall
 addgroup --system dba
 adduser --system --ingroup oinstall --shell /bin/bash oracle
@@ -214,5 +212,3 @@ sudo -i -u oracle unzip ${currentdir}/${CLIENTBASIC} -d /opt/oracle
 sudo -i -u oracle unzip ${currentdir}/${CLIENTSQL} -d /opt/oracle
 sudo -i -u oracle ln -s /opt/oracle/instantclient_12_1/libclntsh.so{.12.1,}
 sudo -i -u oracle ln -s /opt/oracle/instantclient_12_1/libocci.so{.12.1,}
-
-set +e
