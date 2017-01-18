@@ -7,7 +7,7 @@ adduser oracle dba
 
 memorysize=$(free -b | grep -Ei 'mem:' | awk '{print $2}')
 memorymax=$(free -m | grep -Ei 'mem:' | awk '{print $4}')
-memorymax=$((memorysize*40/100))
+memorymax=$((memorymax*40/100))
 pagesize=$(getconf PAGE_SIZE)
 shmall=$((memorysize/pagesize))
 ((memorysize--))
