@@ -11,7 +11,7 @@ currentdir=$(pwd)
 function comprobarErrores(){
     if [[ ${#NUMERRS[@]} > 0 ]]; then
         printf 'Errores detectados...\n'
-        for ERRORMSG in ${ERRS[*]}; do
+        for ERRORMSG in ${ERRS[@]}; do
             printf "${ERRORMSG}\n"
         done
     fi
@@ -20,10 +20,14 @@ function comprobarErrores(){
 function comprobarWarnings(){
     if [[ ${#WARNNUMS[@]} > 0 ]]; then
         printf 'Warnings detectados...\n'
-        for WARNMSG in ${WARNINGS[*]}; do
+        for WARNMSG in ${WARNINGS[@]}; do
             printf "${WARNMSG}\n"
         done
     fi
+}
+
+function Salir(){
+    exit 1
 }
 
 printf 'Instalassiom de Oracle12c en GNU/Lìnu...\n'
