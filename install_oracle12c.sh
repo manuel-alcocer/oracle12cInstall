@@ -9,7 +9,7 @@ WARNINGS=()
 currentdir=$(pwd)
 
 function comprobarErrores(){
-    if [[ ${#NUMERRS[*]} > 0 ]]; then
+    if [[ ${#NUMERRS[@]} > 0 ]]; then
         printf 'Errores detectados...\n'
         for ERRORMSG in ${ERRS[*]}; do
             printf "${ERRORMSG}\n"
@@ -18,7 +18,7 @@ function comprobarErrores(){
 }
 
 function comprobarWarnings(){
-    if [[ ${#WARNNUMS[*]} > 0 ]]; then
+    if [[ ${#WARNNUMS[@]} > 0 ]]; then
         printf 'Warnings detectados...\n'
         for WARNMSG in ${WARNINGS[*]}; do
             printf "${WARNMSG}\n"
