@@ -197,9 +197,9 @@ if [[ -z ${oracleDBname} ]]; then
     ERRS+=("Error ${ACTION}")
 fi
 
-ACTION='Creando variables del entorno globales'
+ACTION='Creando variables del entorno para el usuario oracle'
 printf "${ACTION}...\n" 
-cat << EOF > /etc/profile
+cat << EOF > /home/oracle/.profile
 export ORACLE_HOSTNAME=localhost
 export ORACLE_OWNER=oracle
 export ORACLE_BASE=/opt/oracle
