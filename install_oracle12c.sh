@@ -199,7 +199,7 @@ fi
 
 ACTION='Creando variables del entorno para el usuario oracle'
 printf "${ACTION}...\n" 
-cat << EOF > /home/oracle/.profile
+cat << EOF >> /etc/profile
 export ORACLE_HOSTNAME=localhost
 export ORACLE_OWNER=oracle
 export ORACLE_BASE=/opt/oracle
