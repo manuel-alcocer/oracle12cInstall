@@ -11,7 +11,7 @@ currentdir=$(pwd)
 function comprobarErrores(){
     if [[ ${#NUMERRS[@]} > 0 ]]; then
         printf 'Errores detectados...\n'
-        for ERRORMSG in ${ERRS[@]}; do
+        for ERRORMSG in "${ERRS[@]}"; do
             printf "${ERRORMSG}\n"
         done
     fi
@@ -20,7 +20,7 @@ function comprobarErrores(){
 function comprobarWarnings(){
     if [[ ${#WARNNUMS[@]} > 0 ]]; then
         printf 'Warnings detectados...\n'
-        for WARNMSG in ${WARNINGS[@]}; do
+        for WARNMSG in "${WARNINGS[@]}"; do
             printf "${WARNMSG}\n"
         done
     fi
@@ -263,7 +263,7 @@ fi
 
 ACTION='Introduciendo contraseña de la base de datos'
 printf "${ACTION}...\n"
-printf '(8 caracteres, al menos una mayúscula y un número)'
+printf '(8 caracteres, al menos una mayúscula y un número)\n'
 read -p 'Introduce la contraseña para la BBDD: ' oraclePassword
 
 ACTION='Creando fichero de respuesta para la instalación de oracle12c'
