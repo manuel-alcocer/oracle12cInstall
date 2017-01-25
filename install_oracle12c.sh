@@ -321,7 +321,7 @@ set -e
 
 ACTION='Instalando ejecutables de la base de datos'
 printf "${ACTION}...\n" 
-if [[ ! -f ${currentdir}/database/runInstaler ]]; then
+if [[ ! -f ${currentdir}/database/runInstaller ]]; then
     printf 'No se puede seguir, falta el fichero de instalción runInstaler\n'
     Salir
 else
