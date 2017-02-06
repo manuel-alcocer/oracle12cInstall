@@ -103,7 +103,7 @@ kernel.shmmax = $memorysize
 kernel.shmall = $shmall
 # PAGE_SIZE
 kernel.shmmni = 4096
-net.ipv4.ip_local_port_range = 1024 65000
+net.ipv4.ip_local_port_range = 1024 65535
 vm.hugetlb_shm_group = 111
 vm.nr_hugepages = 64
 EOF
@@ -317,8 +317,6 @@ comprobarWarnings
 WARNNUMS=0
 WARNINGS=()
 
-set -e
-
 ACTION='Instalando ejecutables de la base de datos'
 printf "${ACTION}...\n" 
 if [[ ! -f ${currentdir}/database/runInstaller ]]; then
@@ -415,8 +413,6 @@ PDBNAME = "PDB1"
 EOF
 
 sudo -i -u oracle /opt/oracle/product/12.1.0.2/db_home_1/bin/dbca -silent -cloneTemplate -responseFile ${currentdir}/dbca.rsp
-
-set +e
 
 ACTION='Descomprimiendo e instalando Client Basic'
 printf "${ACTION}...\n" 
